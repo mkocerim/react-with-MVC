@@ -4,7 +4,11 @@ class AddStudentFormModel {
     firstName: "",
     lastName: "",
     studentNumber: "",
-  };
+  }; 
+  error={
+    field:"",
+    message:""
+  }
 }
 
 export default AddStudentFormModel;

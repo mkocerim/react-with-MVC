@@ -1,6 +1,11 @@
 import React from "react";
 
-const AddStudentFormView = ({ onInputChange, getFormValue, onSubmit }) => {
+const AddStudentFormView = ({
+  onInputChange,
+  getFormValue,
+  onSubmit,
+  error,
+}) => {
   return (
     <form onSubmit={onSubmit}>
       <div>
@@ -11,6 +16,7 @@ const AddStudentFormView = ({ onInputChange, getFormValue, onSubmit }) => {
           id="firstName"
           type={"text"}
         />
+        {error.field === "firstName" && <p>{error.message}</p>}
       </div>
       <div>
         <label htmlFor="lastName">Ögrenci Soyadi</label>
@@ -19,7 +25,8 @@ const AddStudentFormView = ({ onInputChange, getFormValue, onSubmit }) => {
           value={getFormValue("lastName")}
           id="lastName"
           type={"text"}
-        />
+        />{" "}
+        {error.field === "lastName" && <p>{error.message}</p>}
       </div>
       <div>
         <label htmlFor="studentNumber">Ögrenci No</label>
@@ -30,7 +37,8 @@ const AddStudentFormView = ({ onInputChange, getFormValue, onSubmit }) => {
           value={getFormValue("studentNumber")}
           id="studentNumber"
           type={"text"}
-        />
+        />{" "}
+        {error.field === "studentNumber" && <p>{error.message}</p>}
       </div>
       <div>
         <button type="submit">Save</button>
